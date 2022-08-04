@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-primary {
+    background-color: #0ABF63;
+}
+
+.text-primary {
+    color: #0ABF63;
+}
+
+.header-container {
+    background: url('../assets/competition.png');
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    background-position: 10vmax;
+}
+.header {
+    margin: 0 auto;
+    /* background: rgba(255,255,255,0.4); */
+    /* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
+    border-radius: 10px;
+    backdrop-filter: blur(30px);
+}
