@@ -30,7 +30,7 @@ const SinglePerson: FC = () => {
             ) : (
                 <div>
 
-        <div className="flex flex-col mt-6">
+        <div className="flex flex-col mt-10">
             <div className="text-center text-gray-800 dark:text-gray-100 font-bold text-2xl md:text-6xl mb-10">
                 {person?.name}
             </div>

@@ -1,8 +1,13 @@
-export const HeroSection = () => {
+import { FC } from "react";
+
+interface props {
+  executeScroll: (val: any) => void
+}
+export const HeroSection: FC<props> = ({ executeScroll }) => {
   return (
-    <div className="header-container">
-      <div className="header bg-[rgba(255,255,255,0.6)] dark:bg-[rgba(19,22,25,0.8)] px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-        <div className="max-w-xl sm:mx-auto lg:max-w-2xl">
+    <div className="header-container absolute top-0 left-0 right-0">
+      <div className="header bg-[rgba(255,255,255,0.8)] dark:bg-[rgba(19,22,25,0.8)] px-4 py-24 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+        <div className="max-w-xl sm:mx-auto lg:max-w-2xl mt-[10vh] md:mt-[20vh]">
           <div className="flex flex-col mb-16 sm:text-center sm:mb-0">
             <a href="/" className="mb-6 sm:mx-auto">
               <div className="flex items-center justify-center w-12 h-12 rounded-full bg-green-400">
@@ -22,7 +27,7 @@ export const HeroSection = () => {
               </div>
             </a>
             <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-              <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-800 dark:text-gray-200 sm:text-4xl md:mx-auto">
+              <h2 className="max-w-lg mb-6 font-sans text-4xl font-bold leading-none tracking-tight text-gray-800 dark:text-gray-200 sm:text-4xl md:mx-auto">
                 <span className="relative inline-block">
                   <svg
                     viewBox="0 0 52 24"
@@ -48,20 +53,20 @@ export const HeroSection = () => {
                   </svg>
                   <span className="relative">The</span>
                 </span>{' '}
-                quick, brown fox jumps over a { }
+                people, the Star Wars by { }
                 <span className="relative inline-block">
-                  lazy dog{' '}
+                  Maurice Muthaka{' '}
                   <div className="w-full h-3 -mt-3 bg-purple-400" />
                 </span>
               </h2>
               <p className="text-base text-gray-700 dark:text-gray-400 md:text-lg">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque rem aperiam, eaque ipsa quae.
+                This is a React, GraphQL App that fetches people from the Star Wars API (https://swapi.dev/),
+                supports search, pagination and displays details about each person 
               </p>
             </div>
             <div>
-              <a
-                href="/"
+              <button
+                onClick={executeScroll}
                 aria-label="Scroll down"
                 className="animate-bounce flex items-center justify-center w-10 h-10 mx-auto text-gray-800 dark:text-white duration-300 transform border border-gray-400 rounded-full hover:text-teal-accent-400 hover:border-teal-accent-400 hover:shadow hover:scale-110"
               >
@@ -74,7 +79,7 @@ export const HeroSection = () => {
                 >
                   <path d="M10.293,3.293,6,7.586,1.707,3.293A1,1,0,0,0,.293,4.707l5,5a1,1,0,0,0,1.414,0l5-5a1,1,0,1,0-1.414-1.414Z" />
                 </svg>
-              </a>
+              </button>
             </div>
           </div>
         </div>

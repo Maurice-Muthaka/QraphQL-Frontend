@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { useQuery, gql } from "@apollo/client";
 import { MarketLoad } from "../components/MarketLoad";
 import { GETPEOPLE } from "../GraphQL/Queries";
@@ -11,6 +11,8 @@ const HomeTab: FC = () => {
     const [people, setPeople] = useState<People>();
     const [search, setSearch] = useState('');
     const [page, setPage] = useState(1);
+    const myRef = useRef<any>(null)
+    
     const { loading, error, data } = useQuery(GETPEOPLE, { variables: { search: search, page: page }});
 
     useEffect(() => {
@@ -20,15 +22,19 @@ const HomeTab: FC = () => {
         }
     }, [data])
 
+    const executeScroll = () => myRef?.current.scrollIntoView()  
+
     return (
         <div className="py-16">
-            <HeroSection />
-            <Search search={search} setSearch={setSearch} />
-
+            <HeroSection executeScroll={executeScroll} />
+            <div className="mt-[80vh]">
+                <Search search={search} setSearch={setSearch} />
+            </div>
+            
             {loading ? (
                 <MarketLoad />
             ) : (
-                <div>
+                <div ref={myRef}>
                     <PeopleTable people={people?.people} />
 
                     <div className="flex justify-center items-center my-6">
